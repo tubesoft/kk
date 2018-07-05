@@ -1,0 +1,47 @@
+header {
+	background-color: #1e90ff;
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    color: #e0ffff;
+    font-family: sans-serif;
+    font-size: 15px
+}
+
+header li {
+	float: right;
+	margin-right: 50px;
+	list-style-type: none;
+}
+
+.logo {
+    float: left;
+    margin-left: 20px;
+}
+
+.contents {
+	margin-top: 60px;
+	font-family: monospace;
+	color: #1e90ff;
+}
+
+.contents h1 {
+    color: #1e90ff;
+    padding: 10px;
+    border: 1px solid #191970;
+    border-radius: 10px;
+    font-family: "Century Gothic";
+}
+.copy-area {
+	padding: 50px;
+	background-color: #191970;
+	color: #e0ffff;
+	border-radius: 20px;
+	height: 300px;
+}
+
+.item-area {
+
+}

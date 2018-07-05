@@ -1,6 +1,17 @@
-@(login: String)
-
-@main("Welcome to Play") {
-  <h1>Welcome to Play!</h1>
-  <h2>@login</h2>
+@main("Kashite Karite") {
+<header>
+    <ul>
+        <li class="logo">LOGO</li>
+        <li>@Messages("login")</li>
+        <li>@Messages("help")</li>
+    </ul>
+</header>
+<div class="contents">
+  <h1>@Messages("sitename")</h1>
+  <div class="copy-area">
+  @Messages("copy")
+  </div>
+  <div class="item-area">
+  </div>
+</div>
 }

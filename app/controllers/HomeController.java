@@ -1,7 +1,7 @@
 package controllers;
 
-import play.mvc.*;
-import play.i18n.Messages;
+import play.mvc.Controller;
+import play.mvc.Result;
 /**
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
@@ -14,9 +14,13 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index() {
-        Messages messages = Http.Context.current().messages();
-        String login = messages.at("login");
-        return ok(views.html.index.render(login));
+//        Messages messages = Http.Context.current().messages();
+//        String login = messages.at("login");
+//        System.out.println(login);
+//    	System.out.println(Http.Context.current().lang().code());
+//    	ctx().setTransientLang("en-US");  // そのときだけロケールを変える
+//    	ctx().changeLang("fr");  // cookieに保存してロケールを変える
+        return ok(views.html.index.render());
     }
 
 }
