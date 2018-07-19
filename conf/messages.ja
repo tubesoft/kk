@@ -1,4 +1,25 @@
-login=ログイン
-help=ヘルプ
 sitename=Kashite Karite
+
+#メニューバー
+login=ログイン
+logout=ログアウト
+help=ヘルプ
+borrow=借りる
+lend=貸す
+change-profile=プロフィール変更
+
+#ログイン画面
+email=Eメールアドレス
+password=パスワード
+create-account=新規アカウント作成
+signup=アカウント作成
+forgot-pw=パスワードを忘れましたか？
+wrong-login-info=Eメールまたはパスワードに誤りがあります！
+login-error=ログイン中にエラーが発生しました。
+
+#ログイン・サインインのバリデーション
+error.required=入力必須です
+
+#ホーム画面
 copy=ここにキャッチコピーとかいれる？
+search-placeholder=地域名、場所で検索

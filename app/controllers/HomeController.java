@@ -1,26 +1,47 @@
 package controllers;
 
-import play.mvc.Controller;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import common.secure.AppAuthenticator;
+import models.User;
+import play.cache.SyncCacheApi;
 import play.mvc.Result;
+import play.mvc.Security.Authenticated;
+
 /**
- * This controller contains an action to handle HTTP requests
- * to the application's home page.
+ * ホーム画面
  */
-public class HomeController extends Controller {
-    /**
-     * An action that renders an HTML page with a welcome message.
-     * The configuration in the <code>routes</code> file means that
-     * this method will be called when the application receives a
-     * <code>GET</code> request with a path of <code>/</code>.
-     */
-    public Result index() {
-//        Messages messages = Http.Context.current().messages();
-//        String login = messages.at("login");
-//        System.out.println(login);
-//    	System.out.println(Http.Context.current().lang().code());
-//    	ctx().setTransientLang("en-US");  // そのときだけロケールを変える
-//    	ctx().changeLang("fr");  // cookieに保存してロケールを変える
-        return ok(views.html.index.render());
-    }
+@Singleton
+public class HomeController extends AppController {
+    @Inject
+	public HomeController(SyncCacheApi cache) {
+		super(cache);
+	}
+
+	@Override
+	public Result get() {
+		return ok(views.html.index.render(null));
+	}
+
+	@Authenticated(AppAuthenticator.class)
+	public Result home() {
+		/*
+		 * ユーザ情報でホーム画面を作成し返却する。
+		 */
+		User user = new LoginController(cache).getCacheUser();
+		return ok(views.html.index.render(user));
+	}
+
+	@Authenticated(AppAuthenticator.class)
+	@Override
+	public Result post() {  //ログアウト
+		/*
+		 * キャッシュからユーザ情報を消去し、
+		 * サインイン画面にリダイレクトする。
+		 */
+		new LoginController(cache).clearCacheUser();
+		return redirect("/get");
+	}
 
 }

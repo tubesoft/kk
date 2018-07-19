@@ -1,6 +1,7 @@
+/* ヘッダー部 */
 header {
-	background-color: #1e90ff;
-	position: fixed;
+    background-color: #1e90ff;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -11,37 +12,90 @@ header {
 }
 
 header li {
-	float: right;
-	margin-right: 50px;
-	list-style-type: none;
+    float: right;
+    margin-right: 50px;
+    list-style-type: none;
 }
 
-.logo {
+.logo-and-search {
     float: left;
     margin-left: 20px;
 }
 
-.contents {
-	margin-top: 60px;
-	font-family: monospace;
-	color: #1e90ff;
-}
-
-.contents h1 {
-    color: #1e90ff;
-    padding: 10px;
-    border: 1px solid #191970;
+#search-form {
+    background-color: white;
+    width:250px;
+    height: 25px;
+    border: 1px #191970 solid;
     border-radius: 10px;
-    font-family: "Century Gothic";
 }
-.copy-area {
-	padding: 50px;
-	background-color: #191970;
-	color: #e0ffff;
-	border-radius: 20px;
-	height: 300px;
+#search-form input {
+    vertical-align: middle;
+    margin: 0px;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+#search-input {
+    border: none;
+    width: 220px;
+    padding-left: 10px;
+    font-size: 15px;
 }
 
-.item-area {
+#search-submit {
+    width: 30px;
+    border: none;
+    background-image: url("/assets/images/search.png");
+    background-position: center;
+    background-size: auto 90%;
+    background-repeat: no-repeat;
+}
 
+/* ドロップダウンメニュー */
+.drop-btn {
+    background-color: #191970;
+    color: #e0ffff;
+    /* padding: 16px; */
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    /* position: relative; */
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #e0ffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+/* フッター部 */
+footer {
+	margin-top: 30px;
+	background-color: #e0ffff;
+	padding: 20px;
+	height: 100px;
 }

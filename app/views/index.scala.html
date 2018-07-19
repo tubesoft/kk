@@ -1,11 +1,8 @@
-@main("Kashite Karite") {
-<header>
-    <ul>
-        <li class="logo">LOGO</li>
-        <li>@Messages("login")</li>
-        <li>@Messages("help")</li>
-    </ul>
-</header>
+@(user: User)
+
+@main(Messages("sitename")) {
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/index.css")">
+@components.header(user)
 <div class="contents">
   <h1>@Messages("sitename")</h1>
   <div class="copy-area">
@@ -14,4 +11,5 @@
   <div class="item-area">
   </div>
 </div>
+@components.footer()
 }

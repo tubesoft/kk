@@ -1,0 +1,50 @@
+@import play.data.Form
+@import helper._
+
+@(loginForm: Form[forms.LoginForm], errorComment: String)
+
+@implicitField = @{ FieldConstructor(components.plainFieldConstructor.f) }
+
+@main(Messages("login")) {
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/login.css")">
+<div class="form-wrapper">
+  <h1>@Messages("login")</h1>
+  @form(CSRF(routes.LoginController.post)) {
+      <div class="form-item">
+      @inputText(loginForm("email"),
+          'type->"email",
+          'name->"email",
+          'placeholder->Messages("email")
+          )
+      </div>
+      <div class="login-error">
+         @for(error <- loginForm("email").errors) {
+            <p>@error.format(messages())</p>
+         }
+      </div>
+      <br>
+      <div class="form-item">
+      @inputPassword(loginForm("password"),
+          'type->"password",
+          'name->"password",
+          'placeholder->Messages("password")
+          )
+      </div>
+      <div class="login-error">
+      @for(error <- loginForm("password").errors) {
+        <p>@error.format(messages())</p>
+      }
+      </div>
+      <br>
+      <div class="login-error">@errorComment</div>
+      <div class="button-panel">
+      <button class="button">@Messages("login")</button>
+      </div>
+  }
+
+  <div class="form-footer">
+    <p><a href="/signup">@Messages("create-account")</a></p>
+    <p><a href="#">@Messages("forgot-pw")</a></p>
+  </div>
+</div>
+}

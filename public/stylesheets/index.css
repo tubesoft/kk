@@ -1,0 +1,25 @@
+/*  コンテンツ部　*/
+.contents {
+    margin-top: 60px;
+    font-family: monospace;
+    color: #1e90ff;
+}
+
+.contents h1 {
+    color: #1e90ff;
+    padding: 10px;
+    border: 1px solid #191970;
+    border-radius: 10px;
+    font-family: "Century Gothic";
+}
+.copy-area {
+    padding: 50px;
+    background-color: #191970;
+    color: #e0ffff;
+    border-radius: 20px;
+    height: 300px;
+}
+
+.item-area {
+
+}

@@ -1,0 +1,35 @@
+@(user: User)
+<header>
+    <ul>
+        <li class="logo-and-search">ロゴはいります</li>
+        <li class="logo-and-search">
+             <form id="search-form" action="">
+                <input id="search-input" type="text" placeholder=@Messages("search-placeholder")><!--
+                              /input間で改行したい場合はコメントアウト必須/
+             --><input id="search-submit" type="submit" value="">
+             </form>
+        </li>
+        <li>
+        @if(user == null) {
+            <a href="@routes.LoginController.get">@Messages("login")</a>
+        } else {
+            <!-- <select name="user-menu" id="user-menu" class="custom-select user-menu" placeholder="USER">
+                <option value="borrow">@Messages("borrow")</option>
+                <option value="lend">@Messages("lend")</option>
+                <option value="change-profile">@Messages("change-profile")</option>
+                <option value="logout"><a href="@routes.HomeController.post">@Messages("logout")</a></option>
+            </select> -->
+            <div class="dropdown">
+                <button class="drop-btn">@user.email</button>
+                <div class="dropdown-content">
+                    <a href="/borrow">@Messages("borrow")</a>
+                    <a href="/rend">@Messages("lend")</a>
+                    <a href="/change-profile">@Messages("change-profile")</a>
+                    <a href="@routes.HomeController.post">@Messages("logout")</a>
+                </div>
+            </div>
+        }
+        </li>
+        <li>@Messages("help")</li>
+    </ul>
+</header>

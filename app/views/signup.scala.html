@@ -1,0 +1,52 @@
+@import play.data.Form
+@import helper._
+
+@(signupForm: Form[forms.SignupForm])
+
+@implicitField = @{ FieldConstructor(components.plainFieldConstructor.f) }
+
+@main(Messages("signup")) {
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/login.css")">
+<div class="form-wrapper">
+  <h1>@Messages("create-account")</h1>
+
+  @form(CSRF(routes.SignupController.post)) {
+        <div class="form-item">
+        <label for="email"></label>
+        @inputText(signupForm("email"),
+            'type->"email",
+            'name->"email",
+            'placeholder->Messages("email")
+            )
+        </div>
+        <div class="login-error">
+            @for(error <- signupForm("email").errors) {
+            <p>@error.format(messages())</p>
+            }
+        </div>
+        <br>
+        <div class="form-item">
+        <label for="password"></label>
+        @inputPassword(signupForm("password"),
+            'type->"password",
+            'name->"password",
+            'placeholder->Messages("password")
+            )
+        </div>
+        <div class="login-error">
+            @for(error <- signupForm("password").errors) {
+            <p>@error.format(messages())</p>
+            }
+        </div>
+        <br>
+
+        <div class="button-panel">
+        <button class="button">@Messages("signup")</button>
+        </div>
+
+  }
+
+  <div class="form-footer">
+  </div>
+</div>
+}
